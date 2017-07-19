@@ -47,7 +47,7 @@ script
 
 ## License
 
-[MIT](https://github.com/kerrytazi/jstransformer-uglify-es/blob/master/LICENSE)
+[MIT](https://github.com/kerrytazi/jstransformer-uglify-es/blob/master/LICENSE.md)
 
 [npm-image]: https://img.shields.io/npm/v/jstransformer-uglify-es.svg
 [npm-url]: https://npmjs.org/package/jstransformer-uglify-es
