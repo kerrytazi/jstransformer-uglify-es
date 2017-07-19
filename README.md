@@ -11,7 +11,7 @@ UglifyES support for JSTransformers
 let uglify = require("jstransformer")(require("jstransformer-uglify-es"));
 
 uglify.render("var x = 5; var y = 6;").body;
-// -> "var x=5,y=6"
+// -> "var x=5,y=6;"
 ```
 
 ## Pug filter
