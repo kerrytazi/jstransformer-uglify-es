@@ -34,7 +34,6 @@ console.log(foo + bar);
 ```js
 // index.js
 
-let uglify = require("jstransformer-uglify-es");
 uglify.renderFile("test.js");
 // -> "let a=2,b=3;console.log(a+b);"
 ```
