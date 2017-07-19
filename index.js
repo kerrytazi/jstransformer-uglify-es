@@ -5,16 +5,18 @@ let uglify = require("uglify-es");
 let fs     = require("fs");
 
 
-let render = function(code, options={}) {
-    let result = uglify.minify(code, options);
-    return result.code || throw new Error(result.error);
+let render = function(code) {
+    let result = uglify.minify(code);
+    if (result.error) throw new Error(result.error);
+    return result.code;
 }
 
 
-let renderFile = function(path, options={}) {
+let renderFile = function(path) {
     let code = fs.readFileSync(path, "utf8");
-    let result = uglify.minify(code, options);
-    return result.code || throw new Error(result.error);
+    let result = uglify.minify(code);
+    if (result.error) throw new Error(result.error);
+    return result.code;
 }
 
 
