@@ -12,7 +12,7 @@ let render = function(code, options={}) {
 
 
 let renderFile = function(path, options={}) {
-    let code = fs.readFileSync("test.js", "utf8");
+    let code = fs.readFileSync(path, "utf8");
     let result = uglify.minify(code, options);
     return result.code || throw new Error(result.error);
 }
