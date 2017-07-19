@@ -3,7 +3,7 @@ UglifyES support for JSTransformers
 
 ## Installation
 
-    npm install jstransformer-uglify-js
+    npm install jstransformer-uglify-es
 
 ## API
 
