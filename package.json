@@ -1,0 +1,21 @@
+{
+    "name": "jstransformer-uglify-js",
+    "version": "0.1.0",
+    "description": "UglifyES support for JSTransformers",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kerrytazi/jstransformer-uglify-es.git"
+    },
+    "author": "Alexander Akhundzhanov",
+    "dependencies": {
+        "uglify-es": "^3.0.25"
+    },
+    "license": "MIT",
+    "keywords": [
+        "jstransformer",
+        "uglify-es",
+        "uglify",
+        "pug"
+    ],
+}
