@@ -1,5 +1,5 @@
 {
-    "name": "jstransformer-uglify-js",
+    "name": "jstransformer-uglify-es",
     "version": "0.1.0",
     "description": "UglifyES support for JSTransformers",
     "main": "index.js",
@@ -17,5 +17,5 @@
         "uglify-es",
         "uglify",
         "pug"
-    ],
+    ]
 }
