@@ -2,7 +2,7 @@
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
 
-[uglify-es](https://www.npmjs.com/package/uglify-es) support for [jstransformer](https://www.npmjs.com/package/jstransformer)
+[uglify-es][uglify-es-url] support for [jstransformer][jstransformer-url]
 
 ## Installation
 
@@ -47,8 +47,11 @@ script
 
 ## License
 
-[MIT](https://github.com/kerrytazi/jstransformer-uglify-es/blob/master/LICENSE.md)
+[MIT][mit-url]
 
+[uglify-es-url]: https://www.npmjs.com/package/uglify-es
+[jstransformer-url]: https://www.npmjs.com/package/jstransformer
+[mit-url]: https://github.com/kerrytazi/jstransformer-uglify-es/blob/master/LICENSE.md
 [npm-image]: https://img.shields.io/npm/v/jstransformer-uglify-es.svg
 [npm-url]: https://npmjs.org/package/jstransformer-uglify-es
 [downloads-image]: https://img.shields.io/npm/dm/jstransformer-uglify-es.svg
