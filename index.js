@@ -2,17 +2,17 @@
 
 
 let uglify = require("uglify-es");
+let fs     = require("fs");
 
 
-let render = function(str, options={}) {
-    options.fromString = true;
-    return uglify.minify(str, options).code;
+let render = function(code, options={}) {
+    return uglify.minify(code, options).code;
 }
 
 
-let renderFile = function(file, options={}) {
-    options.fromString = false;
-    return uglify.minify(file, options).code;
+let renderFile = function(path, options={}) {
+    const code = fs.readFileSync("test.js", "utf8");
+    return uglify.minify(code, options).code;
 }
 
 
@@ -22,4 +22,4 @@ module.exports = Object.assign(Object.create(null), {
     inputFormat: ["js"],
     render,
     renderFile
-}
+});
