@@ -12,17 +12,16 @@
 
 ### Initialization
 ```js
-let uglify = require("jstransformer-uglify-es");
-// or
 let jstransformer = require("jstransformer");
 let uglify = jstransformer(require("jstransformer-uglify-es"));
 ```
-### Minify code string
+### .render
 ```js
-uglify.render("var x = 5; var y = 6;");
+let result = uglify.render("var x = 5; var y = 6;");
+console.log(result.body);
 // -> "var x=5,y=6;"
 ```
-### Or read from file
+### .renderFile
 ```js
 // test.js
 
@@ -34,7 +33,8 @@ console.log(foo + bar);
 ```js
 // index.js
 
-uglify.renderFile("test.js");
+let result = uglify.renderFile("test.js");
+console.log(result.body);
 // -> "let a=2,b=3;console.log(a+b);"
 ```
 
