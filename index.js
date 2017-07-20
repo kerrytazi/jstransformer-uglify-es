@@ -5,18 +5,41 @@ let uglify = require("uglify-es");
 let fs     = require("fs");
 
 
-let render = function(code) {
-    let result = uglify.minify(code);
+let render = function(code, options={}) {
+    let result = uglify.minify(code, options);
     if (result.error) throw new Error(result.error);
     return result.code;
 }
 
 
-let renderFile = function(path) {
-    let code = fs.readFileSync(path, "utf8");
-    let result = uglify.minify(code);
-    if (result.error) throw new Error(result.error);
-    return result.code;
+let renderFile = function(filePath, options={}) {
+    // for pug filter
+    delete options.filename;
+
+    let code = fs.readFileSync(filePath, "utf8");
+    return render(code, options)
+}
+
+
+let renderAsync = function(code, options) {
+    return new Promise(function(resolve, reject) {
+        try {
+            resolve(render(code, options));
+        } catch(e) {
+            reject(e);
+        }
+    });
+}
+
+
+let renderFileAsync = function(filePath, options) {
+    return new Promise(function(resolve, reject) {
+        try {
+            resolve(renderFile(filePath, options));
+        } catch(e) {
+            reject(e);
+        }
+    });
 }
 
 
@@ -25,5 +48,7 @@ module.exports = Object.assign(Object.create(null), {
     outputFormat: "js",
     inputFormats: ["uglify-es", "jsmin", "js"],
     render,
-    renderFile
+    renderFile,
+    renderAsync,
+    renderFileAsync
 });

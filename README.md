@@ -14,37 +14,49 @@
 ```js
 let jstransformer = require("jstransformer");
 let uglify = jstransformer(require("jstransformer-uglify-es"));
+
+let options = {
+    compress: {
+        toplevel: true
+    }
+}
 ```
-### .render
+[More about uglify-es minify options.][more-minify-url]
+### .render(code[, options])
 ```js
-let result = uglify.render("var x = 5; var y = 6;");
-console.log(result.body);
-// -> "var x=5,y=6;"
+let code = "var x = 5; var y = 6; console.log(x + y);";
+let result = uglify.render(code, options);
+result.body // -> "console.log(11);"
 ```
-### .renderFile
+### .renderFile(filePath[, options])
 ```js
 // test.js
 
-let foo = 2;
-let bar = 3;
+let foo = 4;
+let bar = 8;
 
-console.log(foo + bar);
+const add = function(a, b) {
+    return a + b;
+}
+
+console.log(add(foo, bar));
 ```
 ```js
 // index.js
 
-let result = uglify.renderFile("test.js");
-console.log(result.body);
-// -> "let a=2,b=3;console.log(a+b);"
+let result = uglify.renderFile("test.js", options);
+result.body // -> "console.log(function(n,o){return n+o}(4,8));"
 ```
-
+### .renderAsync(code[, options])
+The same as `.render` but return new Promise.
+### .renderFileAsync(filePath[, options])
+The same as `.renderFile` but return new Promise.
 ## Pug filter
-
 ```
 script
-    include:uglify-es my-script.js
+    include:uglify-es(compress:{toplevel:true}) my-script.js
 ```
-
+[More about pug filters.][more-pug-url]
 ## License
 
 [MIT][mit-url]
@@ -52,6 +64,8 @@ script
 [uglify-es-url]: https://www.npmjs.com/package/uglify-es
 [jstransformer-url]: https://www.npmjs.com/package/jstransformer
 [mit-url]: https://github.com/kerrytazi/jstransformer-uglify-es/blob/master/LICENSE.md
+[more-pug-url]: https://pugjs.org/language/filters.html
+[more-minify-url]: https://www.npmjs.com/package/uglify-es#minify-options
 [npm-image]: https://img.shields.io/npm/v/jstransformer-uglify-es.svg
 [npm-url]: https://npmjs.org/package/jstransformer-uglify-es
 [downloads-image]: https://img.shields.io/npm/dm/jstransformer-uglify-es.svg
