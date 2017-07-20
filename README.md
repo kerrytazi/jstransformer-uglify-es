@@ -54,7 +54,7 @@ The same as `.renderFile` but return new Promise.
 ## Pug filter
 ```
 script
-    include:uglify-es(compress:{toplevel:true}) my-script.js
+    include:uglify-es(compress={toplevel:true}) my-script.js
 ```
 [More about pug filters.][more-pug-url]
 ## License
